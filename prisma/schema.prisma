@@ -1,0 +1,98 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Race {
+  HUMAN
+  VULCAN
+  ANDORIAN
+  KLINGON
+  BETAZOID
+  BOLIAN
+  TRILL
+  FERENGI
+  CARDASSIAN
+  ROMULAN
+}
+
+enum ShipStatus {
+  BUILDING
+  ACTIVE
+  IN_REPAIR
+  DECOMMISSIONED
+  DIA
+}
+
+enum StarFleetShipClass {
+  AKIRA
+  AMBASSADOR
+  ANTARES
+  CENTAUR
+  CHALLENGER
+  CONSTELLATION
+  CONSTITUTION
+  DANUBE
+  DEFIANT
+  ENCHELON
+  EXCELSIOR
+  GAGARIN
+  GALAXY
+  INQUIRY
+  INTREPID
+  LUNA
+  MIRANDA
+  NEBULA
+  NOVA
+  OBERTH
+  ODYSSEY
+  PATHFINDER
+  RELIANT
+  ROSS
+  SOVEREIGN
+}
+
+model Ship {
+  id        String             @id @default(cuid())
+  registry  String             @unique
+  name      String
+  class     StarFleetShipClass
+  status    ShipStatus         @default(BUILDING)
+  createdAt DateTime           @default(now())
+  officers  Officer[]
+}
+
+enum OfficerRank {
+  ENSIGN
+  LIEUTENANT
+  LIEUTENANT_COMMANDER
+  COMMANDER
+  CAPTAIN
+  ADMIRAL
+}
+
+enum OfficerRole {
+  COMMAND
+  SCIENCE
+  ENGINEERING
+  MEDICAL
+  SECURITY
+  OPERATIONS
+  DIPLOMACY
+}
+
+model Officer {
+  id         String      @id @default(cuid())
+  firstName  String
+  middleName String?
+  lastName   String
+  rank       OfficerRank
+  role       OfficerRole
+  race       Race
+  shipId     String?
+  ship       Ship?       @relation(fields: [shipId], references: [id])
+}
