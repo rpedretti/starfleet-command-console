@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "setup": "prisma generate",
-    "set-dev-db": "sh set-dev-db.sh"
+    "set-db": "sh set-db.sh"
   },
   "dependencies": {
     "@libsql/client": "^0.15.15",
@@ -16,14 +16,17 @@
     "@prisma/adapter-neon": "^7.2.0",
     "@prisma/client": "^7.2.0",
     "classnames": "^2.5.1",
+    "flyonui": "^2.4.1",
     "next": "16.1.1",
     "prisma": "^7.2.0",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
+    "@iconify-json/tabler": "^1.2.25",
+    "@iconify/tailwind4": "^1.2.0",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

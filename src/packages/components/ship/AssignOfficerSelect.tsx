@@ -47,7 +47,7 @@ export default function AssignOfficerSelect({ registry, officers }: Props) {
       <button
         onClick={handleAssign}
         disabled={!selected || isPending}
-        className='bg-blue-700 text-white px-3 py-1 rounded'
+        className='btn btn-primary'
       >
         {isPending ? 'Assigning…' : 'Assign'}
       </button>

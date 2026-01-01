@@ -26,7 +26,7 @@ export function ShipStatusSelect({
     <select
       value={status}
       onChange={(e) => setStatus(e.target.value as ShipStatus)}
-      className='border p-2 rounded'
+      className='select w-min capitalize'
       required
     >
       {allowEmpty && (

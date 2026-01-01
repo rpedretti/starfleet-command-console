@@ -20,7 +20,7 @@ function OfficerRow({ officer }: { officer: Officer }) {
 
 export function OfficersTable({ officers }: OfficersTableProps) {
   return (
-    <table className='w-full border-collapse'>
+    <table className='table'>
       <thead>
         <tr>
           <th className='border p-2 text-left'>Name</th>

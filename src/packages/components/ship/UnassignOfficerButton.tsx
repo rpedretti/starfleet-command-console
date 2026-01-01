@@ -14,7 +14,7 @@ export function UnassignOfficerButton({
     void unassignOfficer(officerId, registry)
   }
   return (
-    <button className='text-red-600 hover:underline' onClick={handleUnassign}>
+    <button className='link link-error' onClick={handleUnassign}>
       Unassign
     </button>
   )
