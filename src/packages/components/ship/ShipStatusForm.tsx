@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-import cx from 'classnames'
 import { updateShipStatus } from '@/actions/updateShipStatus'
 import { ShipStatusSelect } from '../shared'
 import type { ShipStatus } from '@/prisma/enums'
@@ -29,12 +28,9 @@ export default function ShipStatusForm({ registry, initialStatus }: Props) {
       <ShipStatusSelect setStatus={setStatus} status={status} />
       {isDirty && (
         <button
-          className={cx('bg-blue-700 text-white px-4 py-2 rounded', {
-            'opacity-50 cursor-not-allowed': isSaving,
-            'cursor-pointer': !isSaving
-          })}
+          className='btn btn-primary'
           disabled={isSaving}
-          onClick={handleSave}
+          onClick={() => void handleSave()}
         >
           {isSaving ? 'Saving...' : 'Save'}
         </button>
