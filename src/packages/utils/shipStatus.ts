@@ -12,7 +12,5 @@ export function statusLabel(status: ShipStatus) {
       return 'Decommissioned'
     case 'DIA':
       return 'DIA'
-    default:
-      return status
   }
 }

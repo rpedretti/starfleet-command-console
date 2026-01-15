@@ -24,6 +24,8 @@ export function ShipStatusSelect({
 }: ShipStatusSelectProps) {
   return (
     <select
+      name='Ship status'
+      aria-label='Ship status'
       value={status}
       onChange={(e) => setStatus(e.target.value as ShipStatus)}
       className='select w-min capitalize'

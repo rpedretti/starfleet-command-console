@@ -46,3 +46,7 @@ next-env.d.ts
 dev.db
 .neon
 .neon_key
+
+*storybook.log
+storybook-static
+.build

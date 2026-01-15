@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { createShip } from '@/actions/createShip'
 import { ShipStatus, StarFleetShipClass } from '@/prisma/enums'
-import { getModalById } from '@/utils'
+import { useModalById } from '@/utils'
 import { FormFields } from './FormFields'
 
 interface CreateShipFormProps {
@@ -17,11 +17,11 @@ export function CreateShipForm({ modalId }: CreateShipFormProps) {
   const [status, setStatus] = React.useState<ShipStatus | ''>('')
   const [saving, setSaving] = React.useState(false)
 
-  const modalInstance = getModalById(modalId)
+  const modalInstance = useModalById(modalId)
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    if (!shipClass || !status) return
+    if (!shipClass || !status || !name || !registry) return
 
     setSaving(true)
     void createShip({ name, registry, class: shipClass, status }).then(() => {
@@ -31,7 +31,7 @@ export function CreateShipForm({ modalId }: CreateShipFormProps) {
   }
 
   React.useEffect(() => {
-    modalInstance?.on('open', () => {
+    modalInstance?.on('close', () => {
       setName('')
       setRegistry('')
       setShipClass('')
