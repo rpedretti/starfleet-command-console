@@ -1,6 +1,8 @@
 import { ShipsTable } from '@/components/ships'
 import { db } from '@/lib/db'
 
+export const dynamic = 'force-dynamic'
+
 export default async function ShipsPage() {
   const ships = await db.ship.findMany({
     orderBy: { registry: 'asc' }

@@ -1,6 +1,8 @@
 import { CreateOfficerForm, OfficersTable } from '@/components/officers'
 import { db } from '@/lib/db'
 
+export const dynamic = 'force-dynamic'
+
 export default async function OfficersPage() {
   const officers = await db.officer.findMany({
     orderBy: { lastName: 'asc' }
