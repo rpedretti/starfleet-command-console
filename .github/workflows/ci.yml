@@ -11,6 +11,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install Volta
+        run: curl https://get.volta.sh | bash
+        shell: bash
+
+      - name: Load Volta
+        run: |
+          export VOLTA_HOME="$HOME/.volta"
+          export PATH="$VOLTA_HOME/bin:$PATH"
+          volta --version
+
       - name: Setup Node 24
         uses: actions/setup-node@v4
         with:
@@ -18,7 +28,7 @@ jobs:
           cache: yarn
 
       - name: Install deps
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Codegen
         run: yarn setup
