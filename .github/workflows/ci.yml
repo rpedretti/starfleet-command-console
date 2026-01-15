@@ -6,6 +6,7 @@ on:
 
 env:
   DATABASE_URL_UNPOOLED: NOT_USED_IN_CI
+  DATABASE_URL: NOT_USED_IN_CI
 
 jobs:
   test:
