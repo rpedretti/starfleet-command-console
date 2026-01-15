@@ -17,11 +17,11 @@ jobs:
           node-version: 24
           cache: yarn
 
-      - name: Codegen
-        run: yarn setup
-
       - name: Install deps
         run: yarn install --frozen-lockfile
+
+      - name: Codegen
+        run: yarn setup
 
       - name: Lint
         run: yarn lint
