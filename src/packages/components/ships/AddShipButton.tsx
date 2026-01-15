@@ -1,5 +1,3 @@
-'use client'
-
 import { CreateShipForm } from './CreateShipForm'
 
 export function AddShipButton() {
@@ -8,7 +6,6 @@ export function AddShipButton() {
       <button
         className='btn btn-primary self-start flex gap-1'
         data-overlay='#add-ship-modal'
-        aria-label='Open add ship modal'
         aria-expanded='false'
       >
         <span className='icon-[tabler--circle-plus]' />

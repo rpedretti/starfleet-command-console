@@ -43,6 +43,9 @@
       ],
       "@/utils/*": [
         "./src/packages/utils/*"
+      ],
+      "@/storybook/preview": [
+        "./.storybook/preview.tsx"
       ]
     }
   },
@@ -52,7 +55,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx"
   ],
   "exclude": [
     "node_modules"

@@ -37,6 +37,7 @@ export function CreateOfficerForm() {
     >
       <input
         type='text'
+        name='firstName'
         placeholder='First Name'
         value={firstName}
         onChange={(e) => setFirstName(e.target.value)}
@@ -46,6 +47,7 @@ export function CreateOfficerForm() {
       />
       <input
         type='text'
+        name='middleName'
         placeholder='Middle Name'
         value={middleName}
         onChange={(e) => setMiddleName(e.target.value)}
@@ -54,6 +56,7 @@ export function CreateOfficerForm() {
       />
       <input
         type='text'
+        name='lastName'
         placeholder='Last Name'
         value={lastName}
         onChange={(e) => setLastName(e.target.value)}
@@ -62,6 +65,8 @@ export function CreateOfficerForm() {
         disabled={saving}
       />
       <select
+        name='rank'
+        aria-label='Rank'
         value={rank}
         onChange={(e) => setRank(e.target.value as Officer['rank'])}
         className='border p-2 rounded capitalize'
@@ -78,6 +83,8 @@ export function CreateOfficerForm() {
         ))}
       </select>
       <select
+        name='role'
+        aria-label='Role'
         value={role}
         onChange={(e) => setRole(e.target.value as Officer['role'])}
         className='border p-2 rounded capitalize'
@@ -94,6 +101,8 @@ export function CreateOfficerForm() {
         ))}
       </select>
       <select
+        name='race'
+        aria-label='Race'
         value={race}
         onChange={(e) => setRace(e.target.value as Officer['race'])}
         className='border p-2 rounded capitalize'

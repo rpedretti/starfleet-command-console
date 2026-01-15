@@ -30,6 +30,7 @@ export function FormFields({
     <>
       <input
         type='text'
+        name='Ship name'
         placeholder='Ship Name'
         value={name}
         onChange={(e) => setName(e.target.value)}
@@ -39,6 +40,7 @@ export function FormFields({
       />
       <input
         type='text'
+        name='Ship registry'
         placeholder='Registry'
         value={registry}
         onChange={(e) => setRegistry(e.target.value)}
@@ -47,6 +49,8 @@ export function FormFields({
         disabled={saving}
       />
       <select
+        name='Ship class'
+        aria-label='Ship class'
         value={shipClass}
         onChange={(e) => setShipClass(e.target.value as StarFleetShipClass)}
         className='select w-min capitalize'

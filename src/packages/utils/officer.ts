@@ -22,10 +22,12 @@ export function officerNameLabel(
   officer: Pick<Officer, 'firstName' | 'middleName' | 'lastName'>
 ) {
   const { firstName, middleName, lastName } = officer
-  const middleNameInitials = (middleName ?? '')
-    .split(' ')
-    .map((n) => `${n.charAt(0)}.`)
-    .join(' ')
+  const middleNameInitials = middleName
+    ? middleName
+        .split(/\s+/)
+        .map((n) => `${n.charAt(0)}.`)
+        .join(' ')
+    : ''
 
   return [`${lastName},`, firstName, middleNameInitials]
     .filter(Boolean)

@@ -1,4 +1,4 @@
-import { PrismaClient, type ShipStatus } from '@/prisma/client'
+import { PrismaClient } from '@/prisma/client'
 import { PrismaNeon } from '@prisma/adapter-neon'
 
 const globalForPrisma = globalThis as unknown as {
@@ -20,11 +20,4 @@ export const db =
 
 if (process.env.NODE_ENV !== 'production') {
   globalForPrisma.prisma = db
-}
-
-export async function updateShipStatus(registry: string, status: ShipStatus) {
-  return await db.ship.update({
-    where: { registry },
-    data: { status }
-  })
 }
