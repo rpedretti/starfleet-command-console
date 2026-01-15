@@ -7,7 +7,7 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "eslint",
-    "setup": "prisma generate",
+    "setup": "prisma generate && yarn playwright install chromium",
     "set-db": "sh set-db.sh",
     "test": "vitest run --coverage",
     "storybook": "storybook dev -p 6006",
