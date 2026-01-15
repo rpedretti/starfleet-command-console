@@ -1,7 +1,6 @@
 import { defineConfig, globalIgnores } from 'eslint/config'
 import nextVitals from 'eslint-config-next/core-web-vitals'
 import nextTs from 'eslint-config-next/typescript'
-import parser from '@typescript-eslint/parser'
 import tseslint from 'typescript-eslint'
 
 const eslintConfig = defineConfig([
@@ -15,18 +14,30 @@ const eslintConfig = defineConfig([
     'out/**',
     'build/**',
     'next-env.d.ts',
+    '*.mjs',
     '**/generated/**'
   ]),
   {
     languageOptions: {
-      parser,
       parserOptions: {
-        project: './tsconfig.json'
+        projectService: true
       }
     },
-    files: ['**/*.ts', '**/*.tsx'],
     rules: {
-      '@typescript-eslint/switch-exhaustiveness-check': 'error'
+      '@typescript-eslint/switch-exhaustiveness-check': 'error',
+      '@typescript-eslint/no-floating-promises': 'error',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          args: 'all',
+          argsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true
+        }
+      ]
     }
   }
 ])
