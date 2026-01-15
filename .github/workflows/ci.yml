@@ -8,7 +8,8 @@ env:
   DATABASE_URL_UNPOOLED: NOT_USED_IN_CI
 
 jobs:
-  test:
+  quality-check:
+    name: Quality Check
     runs-on: ubuntu-latest
 
     steps:
